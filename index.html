@@ -1,0 +1,235 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GammerX - Gaming Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+<script>
+    function searchGames() {
+        const query = document.querySelector('.search-bar').value.toLowerCase();
+        const games = document.querySelectorAll('.game-item');
+        const searchResults = document.querySelector('.search-results');
+        const homeContent = document.querySelector('.home-content');
+        
+        // Clear previous results
+        searchResults.innerHTML = '';
+
+        let found = false;
+
+        games.forEach(game => {
+            const title = game.querySelector('h3').textContent.toLowerCase();
+            if (title.includes(query)) {
+                const gameClone = game.cloneNode(true);
+                gameClone.querySelector('.game-link').addEventListener('click', resetHomeContent);
+                searchResults.appendChild(gameClone);
+                found = true;
+            }
+        });
+
+        if (!found) {
+            searchResults.innerHTML = '<p>No games found.</p>';
+        }
+
+        //  show search results
+        homeContent.style.display = 'none';
+        searchResults.style.display = 'flex';
+    }
+
+    function resetHomeContent() {
+        document.querySelector('.home-content').style.display = 'block';
+        document.querySelector('.search-results').style.display = 'none';
+        document.querySelector('.search-bar').value = '';
+    }
+
+    // Event listener to enable "Enter" key 
+    document.querySelector('.search-bar').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            searchGames();
+        }
+    });
+</script>
+
+    <style>
+        a {
+            text-decoration: none;
+        }
+        .search-results {
+            display: none;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .game-item {
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>GammerX</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search games...">
+                <button class="search-btn" onclick="searchGames()">Search</button>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="main-content">
+        <video autoplay muted loop class="bg-video">
+            <source src="video1.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay">
+            <div class="home-content">
+                <h2>Welcome to GammerX!</h2>
+                <p>Level up your gaming journey with thrilling experiences and endless fun!</p>
+                <p style="padding-right:50%"><button class="join-us-btn" onclick="showLoginSuccess()">Join Us</button></p>
+            </div>
+            <div class="search-results mt-8"></div>
+        </div>
+    </section><br><br>
+
+
+
+    
+<section id="promo-video" class="video-section">
+    <video autoplay muted loop class="bg-video">
+        <source src="video.mp4" type="video/mp4">
+    </video>
+    <div class="promo-heading">
+        <h1 >GAMMERX UNIVERSE</h1>
+    </div>
+    <div class="promo-overlay">
+        <h2 style="text-align:left;">Experience the Thrill of Gaming!</h2>
+        <p >Discover new worlds, battle epic foes, and challenge yourself like never before.</p>
+        <p style="padding-right:80%"><button class="explore-btn" onclick="scrollToGames()">Explore Games</button></p>
+    </div>
+</section>
+    
+    <section id="about" class="about-section">
+    <div class="about-content">
+        <h2>About GammerX</h2>
+        <p>Welcome to <strong>GammerX</strong> – your ultimate gaming destination! Whether you're a casual gamer or a competitive player, we bring you the best gaming experience with a variety of genres to explore, intense multiplayer experiences, and exciting challenges.</p>
+        <p>Join our community of gamers and level up your skills, discover new games, and connect with players from around the world!</p>
+        <div class="about-stats">
+            <div class="stat">
+                <h3>500+</h3>
+                <p>Games Available</p>
+            </div>
+            <div class="stat">
+                <h3>10M+</h3>
+                <p>Active Gamers</p>
+            </div>
+            <div class="stat">
+                <h3>100+</h3>
+                <p>Global Tournaments</p>
+            </div>
+        </div>
+    </div>
+    <div class="about-image">
+        <img src="game4.jpg" alt="Gaming World">
+    </div>
+</section>
+
+<section id="demo-video" class="demo-section">
+    <video autoplay muted loop class="bg-v">
+        <source src="video2.mp4" type="video/mp4">
+    </video>
+</section>
+
+<section id="games" class="games-section">
+    <h2>Our Games</h2>
+    <div class="game-list">
+	    <div class="game-item">
+            <img src="game6.jpg" alt="Game 1">
+            <h3>Epic Battle Royale</h3>
+            <p>Join the fight in an epic battle for survival, with intense multiplayer action and dynamic combat strategies.</p>
+            <a href="#" class="game-link" onclick="resetHomeContent()">Play Now</a>
+        </div>
+        <div class="game-item">
+            <img src="game1.jpg" alt="Game 1">
+            <h3>Epic Battle Royale</h3>
+            <p>Join the fight in an epic battle for survival, with intense multiplayer action and dynamic combat strategies.</p>
+            <a href="#" class="game-link" onclick="resetHomeContent()">Play Now</a>
+        </div>
+        <div class="game-item">
+            <img src="game2.jpg" alt="Game 2">
+            <h3>Fantasy Quest</h3>
+            <p>Embark on a magical journey through ancient lands filled with mythical creatures, epic quests, and challenging puzzles.</p>
+            <a href="#" class="game-link" onclick="resetHomeContent()">Play Now</a>
+        </div>
+        <div class="game-item">
+            <img src="game3.jpg" alt="Game 3">
+            <h3>Street Racing Legends</h3>
+            <p>Race against the clock in high-speed street races and become the legend of the underground racing world.</p>
+            <a href="#" class="game-link" onclick="resetHomeContent()">Play Now</a>
+        </div>
+		<div class="game-item">
+            <img src="game5.jpg" alt="Game 3">
+            <h3>Street Racing Legends</h3>
+            <p><br>Engage in epic, large-scale battles across diverse environments, using advanced weapons and vehicles to dominate the battlefield..</p>
+            <a href="#" class="game-link" onclick="resetHomeContent()">Play Now</a>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <p>We'd love to hear from you! Whether you have questions, suggestions, or just want to say hi, feel free to reach out to us. Our team is here to help!</p>
+    <div class="contact-container">
+        <form class="contact-form" action="#" method="POST" onsubmit="showLoginSuccess(); return false;">
+            <div class="input-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+</section>
+
+<br><br>
+    <footer>
+        <p>&copy; 2025 GammerX. All rights reserved.</p>
+    </footer>
+	
+<script>
+    document.querySelector('.join-us-btn').addEventListener('click', function () {
+        window.location.href = 'login.html'; // Replace with your actual login page URL
+    });
+
+
+
+  function scrollToGames() {
+        document.getElementById('games').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+</script>
+
+</body>
+</html>
