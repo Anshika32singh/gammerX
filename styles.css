@@ -1,0 +1,593 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    padding: 15px 0;
+    background: #222;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar .logo h1 {
+    font-size: 2rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-links a:hover {
+    color: #D5006D;
+    transform: scale(1.1);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 8px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 200px;
+}
+
+.search-btn {
+    background-color: #D5006D;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: hsl(20, 94%, 53%);
+}
+
+.main-content {
+    text-align: left;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeInMain 1.5s ease-out;
+}
+
+.main-content h2 {
+    font-weight: 600;
+    color: #D5006D;
+    font-size: 2rem;
+}
+
+.anime-container {
+    position: relative;
+    width: 500px;
+    height: 700px;
+    opacity: 0;
+    animation: fadeIn 2s forwards, walkCycle 1.5s steps(6) infinite;
+    overflow: hidden;
+}
+
+.anime-character {
+    background-image: url('img.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes walkCycle {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -900px 0;
+    }
+}
+
+footer {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background: #222;
+    color: #aaa;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+    }
+    .anime-character {
+        width: 180px;
+        height: 320px;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .search-container {
+        flex-direction: column;
+    }
+    .search-bar {
+        width: 150px;
+    }
+}
+
+/* Styles for the home section with full-screen video */
+/* Styles for the home section with full-screen video */
+#home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 50px;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.video-overlay {
+    position: absolute;
+    left: 50px;
+    color: white;
+    z-index: 1;
+    text-align: left;
+}
+
+.video-overlay h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.video-overlay p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    text-align: left;
+}
+
+.join-us-btn {
+    background-color: #D5006D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    text-align: left;
+}
+
+.join-us-btn:hover {
+    background-color: #e03e00;
+}
+
+
+@keyframes fadeInBtn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* General Styles */
+
+
+/* About Us Section */
+.about-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 20px;
+    background-color: #1d1d1d; /* Matching the background color */
+    color: #fff;
+    max-width: 1500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease-out;
+}
+
+.about-content {
+    width: 50%;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    color: #D5006D;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.about-stats {
+    display: flex;
+    margin-top: 30px;
+}
+
+.stat {
+    text-align: center;
+    margin-right: 30px;
+}
+
+.stat h3 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #D5006D;
+}
+
+.stat p {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+/* Our Games Section */
+.games-section {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #1d1d1d; /* Matching the background color */
+    color: #fff;
+    margin-top: 50px;
+	max-width: 1500px;
+}
+
+.games-section h2 {
+    font-size: 2.5rem;
+    color: #D5006D;
+    margin-bottom: 30px;
+}
+
+.game-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: nowrap; /* Prevents wrapping onto new lines */
+    margin-top: 30px;
+}
+
+.game-item {
+    background-color: #444;
+    border-radius: 8px;
+    padding: 20px;
+    width: 280px;
+    transition: transform 0.3s ease;
+}
+
+.game-item:hover {
+    transform: scale(1.05);
+}
+
+.game-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.game-item h3 {
+    color: #D5006D;
+    margin-top: 15px;
+}
+
+.game-item p {
+    color: #fff;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.game-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #D5006D;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.game-link:hover {
+    background-color: #C40059;
+}
+
+/* Contact Us Section */
+.contact-section {
+    padding: 60px 20px;
+    background-color: #1d1d1d; /* Matching the background color */
+    color: #fff;
+    text-align: center;
+    margin-top: 50px;
+	max-width: 100%;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    color: #D5006D;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.contact-form {
+    background-color: #444;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+}
+
+.input-group textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+.submit-btn {
+    background-color: #D5006D;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #C40059;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #D5006D;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+.demo-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg-v {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+    .video-section {
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+    .bg-video {
+        width: 100%;
+        height: auto;
+    }
+    .promo-heading {
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        font-size: 48px;
+        font-weight: bold;
+        color: white;
+        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+    }
+     .promo-overlay {
+        position: absolute;
+        top: 30%;
+        right: 30%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        border-radius: 10px;
+      
+    }
+       .explore-btn {
+        background: #D5006D;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-top: 10px;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+    .explore-btn:hover {
+        background: #e84118;
+    }
+  
+
+
+  @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .promo-heading {
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        font-size: 48px;
+        font-weight: bold;
+        color: white;
+        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+        animation: fadeIn 1.5s ease-in-out;
+    }
