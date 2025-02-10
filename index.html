@@ -7,48 +7,52 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 <script>
-    function searchGames() {
-        const query = document.querySelector('.search-bar').value.toLowerCase();
-        const games = document.querySelectorAll('.game-item');
-        const searchResults = document.querySelector('.search-results');
-        const homeContent = document.querySelector('.home-content');
-        
-        // Clear previous results
-        searchResults.innerHTML = '';
+function searchGames() {
+    const query = document.querySelector('.search-bar').value.toLowerCase();
+    const games = document.querySelectorAll('.game-item');
+    const searchResults = document.querySelector('.search-results');
+    const homeContent = document.querySelector('.home-content');
+   
+    // Clear previous results
+    searchResults.innerHTML = '';
 
-        let found = false;
+    let found = false;
 
-        games.forEach(game => {
-            const title = game.querySelector('h3').textContent.toLowerCase();
-            if (title.includes(query)) {
-                const gameClone = game.cloneNode(true);
-                gameClone.querySelector('.game-link').addEventListener('click', resetHomeContent);
-                searchResults.appendChild(gameClone);
-                found = true;
-            }
-        });
-
-        if (!found) {
-            searchResults.innerHTML = '<p>No games found.</p>';
-        }
-
-        //  show search results
-        homeContent.style.display = 'none';
-        searchResults.style.display = 'flex';
-    }
-
-    function resetHomeContent() {
-        document.querySelector('.home-content').style.display = 'block';
-        document.querySelector('.search-results').style.display = 'none';
-        document.querySelector('.search-bar').value = '';
-    }
-
-    // Event listener to enable "Enter" key 
-    document.querySelector('.search-bar').addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            searchGames();
+    games.forEach(game => {
+        const title = game.querySelector('h3').textContent.toLowerCase();
+        if (title.includes(query)) {
+            const gameClone = game.cloneNode(true);
+            gameClone.querySelector('.game-link').addEventListener('click', resetHomeContent);
+            searchResults.appendChild(gameClone);
+            found = true;
         }
     });
+
+    // Show a prompt message for no results found
+    if (!found) {
+        alert("No games found. Please try a different search term.");
+    }
+
+    // Ensure search results are shown but home content is still visible
+    searchResults.style.display = 'flex';  // Display search results
+    homeContent.style.display = 'block';   // Ensure home content is still visible (in case it's hidden)
+}
+
+function resetHomeContent() {
+    // No need to hide home content here; just reset the search results
+    document.querySelector('.home-content').style.display = 'block';
+    document.querySelector('.search-results').style.display = 'none';
+    document.querySelector('.search-bar').value = ''; // Clear the search input
+}
+
+// Event listener to enable "Enter" key
+document.querySelector('.search-bar').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        searchGames();
+    }
+});
+
+
 </script>
 
     <style>
@@ -100,7 +104,7 @@
 
 
 
-    
+   
 <section id="promo-video" class="video-section">
     <video autoplay muted loop class="bg-video">
         <source src="video.mp4" type="video/mp4">
@@ -114,7 +118,7 @@
         <p style="padding-right:80%"><button class="explore-btn" onclick="scrollToGames()">Explore Games</button></p>
     </div>
 </section>
-    
+   
     <section id="about" class="about-section">
     <div class="about-content">
         <h2>About GammerX</h2>
@@ -149,7 +153,7 @@
 <section id="games" class="games-section">
     <h2>Our Games</h2>
     <div class="game-list">
-	    <div class="game-item">
+   <div class="game-item">
             <img src="game6.jpg" alt="Game 1">
             <h3>Epic Battle Royale</h3>
             <p>Join the fight in an epic battle for survival, with intense multiplayer action and dynamic combat strategies.</p>
@@ -173,7 +177,7 @@
             <p>Race against the clock in high-speed street races and become the legend of the underground racing world.</p>
             <a href="#" class="game-link" onclick="resetHomeContent()">Play Now</a>
         </div>
-		<div class="game-item">
+<div class="game-item">
             <img src="game5.jpg" alt="Game 3">
             <h3>Street Racing Legends</h3>
             <p><br>Engage in epic, large-scale battles across diverse environments, using advanced weapons and vehicles to dominate the battlefield..</p>
@@ -217,7 +221,7 @@
     <footer>
         <p>&copy; 2025 GammerX. All rights reserved.</p>
     </footer>
-	
+
 <script>
     document.querySelector('.join-us-btn').addEventListener('click', function () {
         window.location.href = 'login.html'; // Replace with your actual login page URL
